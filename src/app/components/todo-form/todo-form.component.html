@@ -1,0 +1,14 @@
+<form class="todo-form" [formGroup]="todoForm">
+  <button class="todo-form__button todo-form__button--plus">➕</button>
+  <input
+    class="todo-form--control"
+    type="text"
+    formControlName="todoDescription"
+  />
+  <button
+    class="todo-form__button todo-form__button--creation"
+    (click)="createTodo()"
+  >
+    🏹
+  </button>
+</form>

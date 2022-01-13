@@ -1,0 +1,53 @@
+@import '../../../../scss/abstracts/variables';
+@import '../../../../scss/abstracts/functions';
+@import '../../../../scss/abstracts/mixins';
+
+.link {
+  display: flex;
+  align-items: center;
+  padding: 8px 14px;
+  color: $brand-color-two;
+  cursor: pointer;
+  text-decoration: none;
+  position: relative;
+  outline: 0;
+  white-space: nowrap;
+  transition: width $side-bar-animation-duration;
+  transition-timing-function: $side-bar-transition-function;
+  width: calc(#{$collapsed-side-bar-width} - 1px);
+
+  .link-title {
+    transition: opacity $side-bar-animation-duration;
+    transition-timing-function: $side-bar-transition-function;
+    opacity: 0;
+  }
+
+  &.active {
+    color: $brand-color-one;
+
+    &:hover {
+      color: $link-active-color;
+    }
+  }
+
+  @include focus(inset 0 0 0px 1px);
+}
+
+.side-bar--open :host {
+  .link {
+    width: calc(#{$side-bar-width} - 1px);
+    .link-title {
+      opacity: 1;
+    }
+  }
+}
+
+.icon {
+  @include font-size(18px);
+  text-align: center;
+}
+
+.link-title {
+  @include font-size(15px);
+  font-weight: $font-weight-light;
+}

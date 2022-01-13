@@ -1,0 +1,26 @@
+@import '../../../scss/abstracts/variables';
+:host {
+  display: block;
+}
+.todo-form {
+  display: flex;
+  &--control {
+    width: 100%;
+    border: none;
+    border-top: 1px solid $border-color;
+    border-bottom: 1px solid $border-color;
+    padding: 10px 0;
+  }
+
+  &__button {
+    border: none;
+    border-top: 1px solid $border-color;
+    border-bottom: 1px solid $border-color;
+    &--plus {
+      border-left: 1px solid $border-color;
+    }
+    &--creation {
+      border-right: 1px solid $border-color;
+    }
+  }
+}

@@ -1,0 +1,32 @@
+// --------------------------------------------------------------------------------------------------
+// layout for app
+// --------------------------------------------------------------------------------------------------
+body {
+  margin: 0;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.page-title {
+  position: absolute;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 3.6rem;
+  width: 100%;
+  @include margin(null, -30px, null, -30px);
+  @include padding(8px, 10px, 10px, 10px);
+
+  @include screen-size(medium) {
+    align-items: center;
+    @include padding(0px, 30px, 0px, 20px);
+  }
+
+  @include border(1px, solid, #ccc, bottom);
+  background: #fff;
+
+  @include screen-size(medium) {
+    flex-direction: row;
+    height: 4rem;
+  }
+}

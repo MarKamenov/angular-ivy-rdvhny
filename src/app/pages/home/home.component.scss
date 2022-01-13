@@ -1,0 +1,37 @@
+@import '../../../scss/abstracts/variables';
+.content__todos {
+  margin-top: 7rem;
+  padding: 0 1.5rem;
+  overflow-y: auto;
+
+  &__wrapper {
+    margin: 2rem 0;
+    .todos__list {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 15px 0;
+      border-bottom: 1px solid $border-color;
+      &__item {
+        display: flex;
+        align-items: center;
+        &--checkbox {
+          margin-right: 0.5rem;
+        }
+        &__label {
+          &--checked {
+            text-decoration: line-through;
+            color: $brand-color-one;
+          }
+        }
+      }
+      &__delete {
+        display: none;
+        border: none;
+        @include screen-size(medium) {
+          display: block;
+        }
+      }
+    }
+  }
+}

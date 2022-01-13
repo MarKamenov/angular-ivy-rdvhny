@@ -1,0 +1,32 @@
+<div class="menu">
+  <div class="menu__search">
+    <button class="menu__search--hamburger d-none--large d-none--medium">
+      🍔
+      <span>Menu</span>
+    </button>
+    <div class="menu__search--group">
+      🔎
+      <input class="menu__search--items" type="search" placeholder="Search" />
+    </div>
+  </div>
+  <div class="menu__user">
+    <div class="menu__user__icons">❔ &nbsp;🔔</div>
+    <div class="menu__user__items">
+      <select
+        class="menu__user__select"
+        [attr.data-select]="'select'"
+        name="'select user'"
+      >
+        <option *ngFor="let option of options" [value]="option.value">
+          {{ option.name }}
+        </option>
+        >
+      </select>
+      <img
+        class="menu__user__avatar"
+        src="https://i.pravatar.cc/300"
+        alt="Avatar"
+      />
+    </div>
+  </div>
+</div>

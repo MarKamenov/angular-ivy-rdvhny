@@ -1,0 +1,16 @@
+<div class="app">
+  <div class="app__body">
+    <div
+      class="side-bar"
+      [ngClass]="{ 'side-bar--open': (sideBarState$ | async) === true }"
+    >
+      <app-side-bar
+        [sideBarLinks]="(sideBarLinks$ | async)!"
+        [state]="(sideBarState$ | async)!"
+      ></app-side-bar>
+    </div>
+    <div class="app__content">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

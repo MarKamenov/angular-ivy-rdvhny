@@ -1,0 +1,31 @@
+<div class="page-title">
+  <app-menu></app-menu>
+</div>
+
+<div class="content__todos">
+  <h1>Overview</h1>
+
+  <div class="content__todos__wrapper">
+    <div class="todos__list" *ngFor="let todo of todos$ | async; let i = index">
+      <div class="todos__list__item">
+        <input
+          [id]="todo.description"
+          class="todos__list__item--checkbox"
+          [checked]="todo.checked"
+          (change)="toggleItem(todo)"
+          type="checkbox"
+        />
+        <label
+          for="{{ todo.description }}"
+          class="todos__list__item__label"
+          [ngClass]="{
+            'todos__list__item__label--checked': todo.checked
+          }"
+          >{{ todo.description }}</label
+        >
+      </div>
+      <button class="todos__list__delete" (click)="deleteItem(todo)">🗑️</button>
+    </div>
+  </div>
+  <app-todo-form></app-todo-form>
+</div>

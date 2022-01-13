@@ -1,0 +1,18 @@
+<nav class="nav">
+  <ul class="unstyled nav__main-menu" title="Main menu">
+    <li
+      *ngFor="let link of sideBarLinks"
+      [attr.data]="link.title"
+      [title]="link.title"
+      class="nav__menu-item"
+    >
+      <app-side-menu-link [link]="link"></app-side-menu-link>
+    </li>
+  </ul>
+  <div *ngIf="state" class="bottom-menu nav__bottom-menu">
+    <ul class="bottom-menu__links unstyled">
+      <li><span>&#9937;</span>Settings</li>
+      <li><span>&#9937;</span>Sign Out</li>
+    </ul>
+  </div>
+</nav>

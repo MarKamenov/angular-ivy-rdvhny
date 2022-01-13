@@ -1,0 +1,112 @@
+@use 'sass:map';
+
+// ---------------------------------------------------------------------------------------------
+// media queries and breakpoints
+// ---------------------------------------------------------------------------------------------
+@mixin screen-size($breakpoint) {
+  @media only screen and (min-width: map.get($screen-breakpoints, $breakpoint)) {
+    @content;
+  }
+}
+
+// ---------------------------------------------------------------------------------------------
+
+// ---------------------------------------------------------------------------------------------
+// calculate font sizes - convert size to rem and have pixels as fallback
+// ---------------------------------------------------------------------------------------------
+@mixin font-size($size) {
+  font-size: $size;
+  font-size: calculate-rem($size);
+}
+
+// ---------------------------------------------------------------------------------------------
+
+// ---------------------------------------------------------------------------------------------
+// padding
+// ---------------------------------------------------------------------------------------------
+@mixin padding($padding-top, $padding-right, $padding-bottom, $padding-left) {
+  padding-top: calculate-rem($padding-top);
+  padding-right: calculate-rem($padding-right);
+  padding-bottom: calculate-rem($padding-bottom);
+  padding-left: calculate-rem($padding-left);
+}
+
+// ---------------------------------------------------------------------------------------------
+
+// ---------------------------------------------------------------------------------------------
+// margin
+// ---------------------------------------------------------------------------------------------
+@mixin margin($margin-top, $margin-right, $margin-bottom, $margin-left) {
+  margin-top: calculate-rem($margin-top);
+  margin-right: calculate-rem($margin-right);
+  margin-bottom: calculate-rem($margin-bottom);
+  margin-left: calculate-rem($margin-left);
+}
+
+// ---------------------------------------------------------------------------------------------
+// --------------------------------------------------------------------------------------------
+// ---------------------------------------------------------------------------------------------
+
+// ---------------------------------------------------------------------------------------------
+// set border of element
+// help: leave border-sides blank for all side the same
+// ---------------------------------------------------------------------------------------------
+@mixin border($border-width, $border-style, $border-color, $border-sides: '') {
+  @if ($border-style != '') {
+    @if ($border-sides== '') {
+      border: $border-width $border-style $border-color;
+    } @else {
+      @each $border-side in $border-sides {
+        @if (
+          $border-side==
+            'top' or
+            $border-side==
+            'right' or
+            $border-side==
+            'bottom' or
+            $border-side==
+            'left'
+        ) {
+          border-#{$border-side}: $border-width $border-style $border-color;
+        }
+      }
+    }
+  }
+}
+
+// ---------------------------------------------------------------------------------------------
+
+// ---------------------------------------------------------------------------------------------
+// box shadow
+// ---------------------------------------------------------------------------------------------
+@mixin box-shadow {
+  box-shadow: #d1d4d3 0px 0px 0.5em 0px;
+}
+
+// ---------------------------------------------------------------------------------------------
+// focus
+// ---------------------------------------------------------------------------------------------
+@mixin focus($box-shadow-properties) {
+  outline: 0;
+
+  &:focus {
+    transition: box-shadow 0.2s;
+    box-shadow: $box-shadow-properties $link-focus-color;
+  }
+
+  &:hover,
+  &:active {
+    transition: box-shadow 0.2s;
+    box-shadow: $box-shadow-properties transparent;
+  }
+}
+
+// ---------------------------------------------------------------------------------------------
+// textbox
+// ---------------------------------------------------------------------------------------------
+@mixin textbox() {
+  color: $font-color;
+  font-weight: $input-font-weight;
+  box-shadow: none;
+  border: none;
+}
