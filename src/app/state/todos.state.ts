@@ -4,6 +4,7 @@ import { LoadTodos, AddTodo, DeleteTodo, ToggleTodo } from './todos.actions';
 import { TodosService } from '../core/services/todos.service';
 import { Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
+import { Injectable } from '@angular/core';
 
 interface ITodoStateModel {
   todos: ITodoItem[];
@@ -15,6 +16,7 @@ interface ITodoStateModel {
     todos: [],
   },
 })
+@Injectable()
 export class TodosState {
   @Selector()
   static todos(state: ITodoStateModel): ITodoItem[] {
