@@ -12,6 +12,9 @@
       justify-content: space-between;
       padding: 15px 0;
       border-bottom: 1px solid $border-color;
+      &.first {
+        border-top: 1px solid $border-color;
+      }
       &__item {
         display: flex;
         align-items: center;
