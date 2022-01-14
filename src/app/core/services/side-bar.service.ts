@@ -28,31 +28,31 @@ export class SideBarService {
     },
     {
       title: 'Tasks',
-      path: '#',
+      path: '/',
     },
     {
       title: 'Today',
-      path: '#',
+      path: '',
     },
     {
       title: 'Next 7 Days',
-      path: '#',
+      path: '',
     },
     {
       title: 'Labels',
-      path: '#',
+      path: '',
     },
     {
       title: 'Idea',
-      path: `#`,
+      path: '',
     },
     {
       title: 'Shared Labels',
-      path: `#`,
+      path: '',
     },
     {
       title: 'Filters',
-      path: `#`,
+      path: '',
     },
   ]);
 
